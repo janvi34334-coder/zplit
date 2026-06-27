@@ -29,8 +29,12 @@
 
   <script>
     const params = window.location.search;
-    const deepLink = "zplit://invite/v1" + params;
-    document.getElementById('openBtn').href = deepLink;
+    const d = new URLSearchParams(params).get('d') || '';
+    
+    // Android Intent URL — works in Chrome on Android
+    const intentUrl = `intent://invite/v1?d=${d}#Intent;scheme=zplit;package=com.example.zplit;end`;
+    
+    document.getElementById('openBtn').href = intentUrl;
   </script>
 </body>
 </html>
