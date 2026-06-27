@@ -11,30 +11,30 @@
       margin: 0;
       background: #f5f5f5;
     }
-    a {
+    button {
       background: #6c47ff;
       color: white;
       padding: 16px 32px;
       border-radius: 12px;
-      text-decoration: none;
+      border: none;
       font-size: 18px;
       font-weight: 600;
+      cursor: pointer;
     }
     p { color: #666; margin-bottom: 24px; }
   </style>
 </head>
 <body>
   <p>You have been invited to Zplit!</p>
-  <a id="openBtn" href="#">Open in Zplit</a>
+  <button onclick="openApp()">Open in Zplit</button>
 
   <script>
-    const params = window.location.search;
-    const d = new URLSearchParams(params).get('d') || '';
-    
-    // Android Intent URL — works in Chrome on Android
-    const intentUrl = `intent://invite/v1?d=${d}#Intent;scheme=zplit;package=com.example.zplit;end`;
-    
-    document.getElementById('openBtn').href = intentUrl;
+    function openApp() {
+      const params = window.location.search;
+      const d = new URLSearchParams(params).get('d') || '';
+      const intentUrl = 'intent://invite/v1?d=' + d + '#Intent;scheme=zplit;package=com.example.zplit;end';
+      window.location.href = intentUrl;
+    }
   </script>
 </body>
 </html>
