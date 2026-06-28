@@ -31,7 +31,7 @@
   <script>
     function openApp() {
       const d = new URLSearchParams(window.location.search).get('d') || '';
-      window.location.href = 'zplit://invite/v1?d=' + d;
+      window.location.href = 'intent://invite/v1?d=' + d + '#Intent;scheme=zplit;package=com.example.zplit;S.browser_fallback_url=about%3Ablank;end';
     }
   </script>
 </body>
