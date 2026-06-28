@@ -30,10 +30,8 @@
 
   <script>
     function openApp() {
-      const params = window.location.search;
-      const d = new URLSearchParams(params).get('d') || '';
-      const intentUrl = 'intent://invite/v1?d=' + d + '#Intent;scheme=zplit;package=com.example.zplit;end';
-      window.location.href = intentUrl;
+      const d = new URLSearchParams(window.location.search).get('d') || '';
+      window.location.href = 'zplit://invite/v1?d=' + d;
     }
   </script>
 </body>
